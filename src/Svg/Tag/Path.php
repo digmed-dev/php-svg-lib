@@ -2,7 +2,7 @@
 /**
  * @package php-svg-lib
  * @link    http://github.com/PhenX/php-svg-lib
- * @author  Fabien Ménager <fabien.menager@gmail.com>
+ * @author  Fabien Mï¿½nager <fabien.menager@gmail.com>
  * @license GNU LGPLv3+ http://www.gnu.org/copyleft/lesser.html
  */
 
@@ -421,6 +421,8 @@ class Path extends Shape
 
     function arcToSegments($toX, $toY, $rx, $ry, $large, $sweep, $rotateX)
     {
+        if (($toX + $toY) == 0) { return []; }
+
         $th = $rotateX * M_PI / 180;
         $sinTh = sin($th);
         $cosTh = cos($th);
